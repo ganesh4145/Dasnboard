@@ -1,4 +1,3 @@
-// Dashboard.js
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -21,7 +20,7 @@ function Dashboard() {
 
   useEffect(() => {
     axios
-      .get("/listapplicationlist")
+      .get("http://127.0.0.1:8000/listapplicationlist")
       .then((response) => {
         setApplicationList(response.data.Answer);
       })
@@ -30,7 +29,7 @@ function Dashboard() {
       });
 
     axios
-      .get("/listerror")
+      .get("http://127.0.0.1:8000/listerror")
       .then((response) => {
         setErrorList(response.data.Answer);
       })
@@ -59,7 +58,7 @@ function Dashboard() {
     };
 
     axios
-      .get("/dashboard", { headers })
+      .get("http://127.0.0.1:8000/dashboard", { headers })
       .then((response) => {
         setData(response.data.Answer);
         setLoading(false);
